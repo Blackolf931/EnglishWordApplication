@@ -17,19 +17,26 @@ export const Words: FC<WordsProps> = () => {
 
     const getWords = async () => {
         try {
-            const response = await fetch('https://localhost:5001/EnglishWord/GetALL', {
-                method: 'GET', headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                }
-            });
-            console.log(response);
-        } catch (error) {
-            console.error(error)
-            console.log(error)
-        }
-        finally {
-        }
+            const response = await fetch('https://reactnative.dev/movies.json');
+            const json = await response.json();
+            setData(json.movies);
+          } catch (error) {
+            console.error(error);
+          } finally {
+           // setLoading(false);
+          }
+        // try {
+        //     const response = fetch('http://http://localhost:5000/EnglishWord/GetALL', {
+        //         method: 'GET', headers: {
+        //             'Accept': 'application/json',
+        //             'Content-Type': 'application/json'
+        //         }
+        //     });
+        // } catch (error) {
+        //     console.error(error)
+        // }
+        // finally {
+        // }
     }
 
 
@@ -46,7 +53,7 @@ export const Words: FC<WordsProps> = () => {
         // data?.translatedWords.push(data.translateWord)
         //setFirstPair(data.translatedWords.slice(0, 2))
         //setSecondPair(data.translatedWords.slice(2))
-    }, [data])
+    }, [])
     return (
 
         <View style={styles.centeredView}>

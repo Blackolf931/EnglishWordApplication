@@ -29,15 +29,7 @@ const App = () => {
           }} />
           <Stack.Screen name="Information" component={CatInformation} />
           <Stack.Screen name="Cafe" component={Cafe} />
-          <Stack.Screen name="Words" component={Words}   options={{
-            headerStyle: {
-              backgroundColor: '#f4511e',
-            },
-            headerTintColor: '#fff',
-            headerTitleStyle: {
-              fontWeight: 'bold',
-            },
-          }}/>
+          <Stack.Screen name="Words" component={Words} />
         </Stack.Navigator>
       </NavigationContainer>
     )
