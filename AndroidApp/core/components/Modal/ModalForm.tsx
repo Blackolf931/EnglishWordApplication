@@ -55,4 +55,3 @@ const FormModal: React.FC<ModalFormProps> = ({ isOpen, setOpen }) => {
 }
 
 export default FormModal;
-
