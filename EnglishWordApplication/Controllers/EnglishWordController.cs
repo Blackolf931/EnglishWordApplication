@@ -7,7 +7,7 @@ namespace EnglishWordApplication.Controllers
     [Route("[controller]")]
     public class EnglishWordController : ControllerBase
     {
-        [HttpGet("GetALL")]
+        [HttpGet]
         public async Task<IEnumerable<WordsViewModel>> GetAll(CancellationToken ct)
         {
             return new List<WordsViewModel>
