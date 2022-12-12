@@ -7,57 +7,50 @@ import { Cafe } from './core/components/Cafe';
 import AppLoading from 'expo-app-loading';
 import { Words } from './core/components/Words/Words';
 
+
 const Stack = createNativeStackNavigator();
 
 const App = () => {
   const [font, setFont] = useState(true);
   if (font) {
     return (
-      <NavigationContainer>
-        <Stack.Navigator>
-          <Stack.Screen name="Home" 
-          component={HomeScreen}
-          options={{
-            title: 'My home',
-            headerStyle: {
-              backgroundColor: '#f4511e',
-            },
-            headerTintColor: '#fff',
-            headerTitleStyle: {
-              fontWeight: 'bold',
-            },
-          }} />
-          <Stack.Screen name="Information" component={CatInformation} />
-          <Stack.Screen name="Cafe" component={Cafe} />
-          <Stack.Screen name="Words" component={Words} />
-        </Stack.Navigator>
-      </NavigationContainer>
+        <NavigationContainer>
+          <Stack.Navigator>
+            <Stack.Screen name="Home"
+              component={HomeScreen}
+              options={{
+                title: 'My home',
+                headerStyle: {
+                  backgroundColor: '#f4511e',
+                },
+                headerTintColor: '#fff',
+                headerTitleStyle: {
+                  fontWeight: 'bold',
+                },
+              }} />
+            <Stack.Screen name="Information" component={CatInformation} />
+            <Stack.Screen name="Cafe" component={Cafe} />
+            <Stack.Screen name="Words" component={Words} options={{
+              title: 'My home',
+              headerStyle: {
+                backgroundColor: '#f4511e',
+              },
+              headerTintColor: '#fff',
+              headerTitleStyle: {
+                fontWeight: 'bold',
+              },
+            }} />
+          </Stack.Navigator>
+        </NavigationContainer>
     )
   } else {
     return (
-      <AppLoading startAsync={images}
+      <AppLoading
         onFinish={() => setFont(true)}
         onError={console.warn} />
     )
   }
 };
 
-
-const config = {
-  animation: 'spring',
-  config: {
-    stiffness: 1000,
-    damping: 500,
-    mass: 3,
-    overshootClamping: true,
-    restDisplacementThreshold: 0.01,
-    restSpeedThreshold: 0.01,
-  },
-};
-
-const images = async () => {
-  await fetch(`https://jsonplaceholder.typicode.com/todos/1`).then(response => response.json())
-    .then(json => console.log(json))
-}
 
 export default App;
