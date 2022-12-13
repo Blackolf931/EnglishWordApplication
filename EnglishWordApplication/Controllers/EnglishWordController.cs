@@ -16,7 +16,18 @@ namespace EnglishWordApplication.Controllers
                 {
                     EnglishWord = "Test1",
                     TranslateWord = "Test1",
-                    TranslatedWords = new List<string> {"test1", "test2", "test3", "Test1"}
+                    FirstTranslatedWord = "test1",
+                    SecondTranslatedWord = "test2",
+                    ThirdTranslatedWord = "test3",
+                    FourthTranslatedWord = "Test1"
+                },new()
+                {
+                    EnglishWord = "Test2",
+                    TranslateWord = "Test2",
+                    FirstTranslatedWord = "test4",
+                    SecondTranslatedWord = "test5",
+                    ThirdTranslatedWord = "test6",
+                    FourthTranslatedWord = "Test7"
                 }
             };
         }

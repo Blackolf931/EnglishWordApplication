@@ -26,6 +26,7 @@ export const styles = StyleSheet.create({
     },
     buttonView: {
         marginRight: '2%',
-        width: '40%'
+        width: '40%',
+        marginTop: '0%',
     }
 })
