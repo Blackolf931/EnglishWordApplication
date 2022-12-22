@@ -1,4 +1,5 @@
 ﻿using DAL.Context;
+using DAL.Entities;
 using DAL.Interfaces;
 using DAL.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -11,7 +12,7 @@ namespace DAL.DI
     {
         public static void AddDataAccess(this IServiceCollection services, IConfiguration config)
         {
-            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<EnglishWordEntity>));
+            services.AddScoped<IGenericRepository<EnglishWordEntity>, GenericRepository<EnglishWordEntity>>();
             services.AddDbContext<DatabaseContext>(op =>
                 {
                     op.UseSqlServer(config.GetConnectionString("DefaultConnection"));

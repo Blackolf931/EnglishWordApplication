@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Button, Text, TouchableOpacity, View } from "react-native";
 import { WordsData } from "../../interfaces/Word";
 import { styles } from "./style";
+import { FlatGrid } from 'react-native-super-grid';
 
 interface WordProps {
     word: WordsData,
@@ -27,15 +28,6 @@ export const Word: React.FC<WordProps> = ({ word, index, setIndex }) => {
             setState({ isRightAnswer: false, disabled: true });
         }
     }
-    const Col = ({ numRows, children }) => {
-        return (
-            <View style={styles[`${numRows}col`]}>{children}</View>
-        )
-    }
-
-    const Row = ({ children }) => (
-        <View style={styles.row}>{children}</View>
-    )
 
     return (
         <View style={styles.app}>

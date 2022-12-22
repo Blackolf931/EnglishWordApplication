@@ -2,11 +2,9 @@
 {
     public class WordsViewModel
     {
-        public string EnglishWord { get; set; } = null!;
-        public string TranslateWord { get; set; } = null!;
-        public string FirstTranslatedWord { get; set; } = null!;
-        public string SecondTranslatedWord { get; set; } = null!;
-        public string ThirdTranslatedWord { get; set; } = null!;
-        public string FourthTranslatedWord { get; set; } = null!;
+        public int Id { get; set; }
+        public string EnglishWord { get; set; }
+        public string TranslatedWord { get; set; }
+        public IEnumerable<string> TranslatedWords { get; set; }
     }
 }

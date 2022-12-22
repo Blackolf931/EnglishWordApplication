@@ -1,11 +1,22 @@
+using Bll.DI;
+using EnglishWordApplication.Mapper;
+using EnglishWordApplication.Middleware;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddNewtonsoftJson(options =>
+{
+    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+});
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddBusinessLogicRegister(builder.Configuration);
+builder.Services.AddAutoMapper(typeof(MappingProfile).Assembly,
+    typeof(Bll.Mapper.MappingProfile).Assembly);
 
 var app = builder.Build();
 
@@ -28,7 +39,7 @@ app.UseCors(op =>
     .AllowAnyHeader()
     .AllowAnyMethod();
 });
-
+app.UseMiddleware<ExceptionMiddleware>();
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
