@@ -30,7 +30,7 @@ namespace Bll.Services
             await _repository.Delete(entity, ct);
         }
 
-        public async Task<IEnumerable<TModel>> GetAll(CancellationToken ct)
+        public virtual async Task<IEnumerable<TModel>> GetAll(CancellationToken ct)
         {
             var result = await _repository.GetAll(ct);
             return _mapper.Map<IEnumerable<TModel>>(result);

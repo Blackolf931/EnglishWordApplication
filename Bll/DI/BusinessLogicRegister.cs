@@ -12,8 +12,8 @@ namespace Bll.DI
     {
         public static void AddBusinessLogicRegister(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddScoped(typeof(IGenericService<EnglishWordModel>),
-                typeof(GenericService<EnglishWordModel, EnglishWordEntity>));
+            services.AddScoped<IGenericService<EnglishWordModel>, GenericService<EnglishWordModel, EnglishWordEntity>>();
+            services.AddScoped<IWordService, WordsService>();
             services.AddDataAccess(configuration);
         }
     }

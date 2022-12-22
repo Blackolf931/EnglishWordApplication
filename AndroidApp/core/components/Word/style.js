@@ -16,7 +16,7 @@ export const styles = StyleSheet.create({
     fontStyle: 'normal',
     fontSize: 50,
     fontWeight: 'bold',
-    color: 'black'
+    color: 'black',
   },
   buttons: {
     flexDirection: 'row',
@@ -31,12 +31,14 @@ export const styles = StyleSheet.create({
   },
 
   app: {
-    flex: 4, // the number of columns you want to devide the screen into
+    flex: 1, 
+    marginTop: '50%',
+    // the number of columns you want to devide the screen into
     justifyContent: "center",
     alignItems: "center",
-    // backgroundColor: '#d4785b',
+    //backgroundColor: '#d4785b',
     // headerStyle: {
-    //   backgroundColor: '#f4511e',
+    //    backgroundColor: '#f4511e',
     // },
     width: '85%'
   },
