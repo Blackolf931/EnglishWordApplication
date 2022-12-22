@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import { Button, View } from "react-native"
 import { styles } from "./style"
 import { WordsData } from "../../interfaces/Word"
@@ -9,6 +9,7 @@ export const Words = () => {
     const [englishWords, setEnglishWords] = useState<WordsData[]>([]);
     const [index, setIndex] = useState(0);
     const [isLoading, setIsLoading] = useState(true);
+    const prevCount: number = usePrevious(index);
 
     const nextWord = () => {
         if (index + 1 < englishWords.length) {
@@ -20,7 +21,6 @@ export const Words = () => {
         try {
             const response = await fetch('http://192.168.0.105:1234/EnglishWord/GetAll');
             const words = await response.json();
-            console.log(words);
             setEnglishWords(words);
             return words;
         }
@@ -39,10 +39,19 @@ export const Words = () => {
         <View style={styles.centeredView}>
             {isLoading ? <LoadingIndicator /> : (
                 <View style={{flex: 1}}>
-                    <Word word={englishWords[index]} index={index} setIndex={nextWord} key={index} />
+                    <Word word={englishWords[index]} numberQuestion={prevCount} setIndex={nextWord} key={index} />
                 </View>
             )}
         </View>
     )
+}
+
+function usePrevious(value: number) {
+    const ref = useRef();
+
+    useEffect(()=> {
+        ref.current = value;
+    }, [value])
+    return ref.current;
 }
 
