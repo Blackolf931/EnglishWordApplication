@@ -20,6 +20,7 @@ export const Words = () => {
         try {
             const response = await fetch('http://192.168.0.105:8089/EnglishWord');
             const words = await response.json();
+            console.log(words);
             setEnglishWords(words);
             return words;
         }
