@@ -31,7 +31,9 @@ export const styles = StyleSheet.create({
   },
 
   app: {
-    flex: 4, // the number of columns you want to devide the screen into
+    flex: 1, 
+    marginTop: '50%',
+    // the number of columns you want to devide the screen into
     justifyContent: "center",
     alignItems: "center",
     // backgroundColor: '#d4785b',
@@ -40,27 +42,7 @@ export const styles = StyleSheet.create({
     // },
     width: '85%'
   },
-  row: {
-    flexDirection: "row",
-    marginTop: '3%'
-  },
-  "1col": {
-    backgroundColor: "#fff",
-    flex: 1,
-    marginRight: '2%'
-  },
-  "2col": {
-    backgroundColor: "#fff",
-    flex: 2,
-    marginRight: '2%'
-  },
-  "3col": {
-    backgroundColor: "#fff",
-    flex: 3
-  },
-  "4col": {
-    flex: 4
-  },
+
   touchableText: {
     display: 'flex',
     justifyContent: 'center',
@@ -81,6 +63,12 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: 'red'
   },
+  correctAnswer:{
+    backgroundColor: 'green',
+  },
+  incorrectAnswer:{
+    backgroundColor: 'red',
+  }
 
 })
 
