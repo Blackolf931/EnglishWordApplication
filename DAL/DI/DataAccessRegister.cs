@@ -11,7 +11,7 @@ namespace DAL.DI
     {
         public static void AddDataAccess(this IServiceCollection services, IConfiguration config)
         {
-            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<EnglishWordEntity>));
             services.AddDbContext<DatabaseContext>(op =>
                 {
                     op.UseSqlServer(config.GetConnectionString("DefaultConnection"));
