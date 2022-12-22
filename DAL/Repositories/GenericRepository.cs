@@ -9,11 +9,10 @@ namespace DAL.Repositories
         protected readonly DatabaseContext _context;
         protected readonly DbSet<TEntity> _dbSet;
 
-
-        public GenericRepository(DatabaseContext context, DbSet<TEntity> dbSet)
+        public GenericRepository(DatabaseContext context)
         {
             _context = context;
-            _dbSet = dbSet;
+            _dbSet = _context.Set<TEntity>();
         }
 
         public async Task<TEntity> Add(TEntity entity, CancellationToken ct)
@@ -30,7 +29,7 @@ namespace DAL.Repositories
             return entity;
         }
 
-        public async Task<IEnumerable<TEntity>> GetAll(CancellationToken ct)
+        public virtual async Task<IEnumerable<TEntity>> GetAll(CancellationToken ct)
         {
             return await _dbSet.AsNoTracking().ToListAsync(ct);
         }

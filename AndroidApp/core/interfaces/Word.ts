@@ -5,4 +5,5 @@ export interface WordsData {
     secondTranslatedWord:string,
     thirdTranslatedWord : string,
     fourthTranslatedWord : string
+    translatedWords: string[]
 }

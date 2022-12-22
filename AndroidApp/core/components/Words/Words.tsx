@@ -18,8 +18,9 @@ export const Words = () => {
 
     const getWords = async () => {
         try {
-            const response = await fetch('http://192.168.0.105:8089/EnglishWord');
+            const response = await fetch('http://192.168.0.105:1234/EnglishWord/GetAll');
             const words = await response.json();
+            console.log(words);
             setEnglishWords(words);
             return words;
         }
