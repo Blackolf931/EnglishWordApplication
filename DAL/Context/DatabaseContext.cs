@@ -19,6 +19,8 @@ namespace DAL.Context
         }
 
         public DbSet<EnglishWordEntity> EnglishWords { get; set; }
+        public DbSet<EnglishTranslatedWordEntity> EnglishTranslatedWords { get; set; }
+        public DbSet<TranslatedWordEntity> TranslatedWords { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
