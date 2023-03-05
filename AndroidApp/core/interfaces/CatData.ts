@@ -1,7 +1,7 @@
 export interface CatData {
-    name: string,
-    isHungry: boolean,
+  name: string;
+  isHungry: boolean;
 }
 export interface ICat {
-    cat: CatData
+  cat: CatData;
 }

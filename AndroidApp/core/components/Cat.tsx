@@ -1,14 +1,13 @@
-import { useNavigation } from '@react-navigation/native';
-import React, { FC, useState } from 'react';
-import { Button, Text, View } from 'react-native';
-import { CatData } from '../interfaces/CatData';
+import {useNavigation} from '@react-navigation/native';
+import React, {useState} from 'react';
+import {Button, Text, View} from 'react-native';
+import {CatData} from '../interfaces/CatData';
 
 interface CatProps {
   cat: CatData;
 }
 
-const Cat: React.FC<CatProps> = ({ cat }) => {
-  
+const Cat: React.FC<CatProps> = ({cat}) => {
   const navigation = useNavigation();
   const [catName] = useState<string>(cat?.name);
   const [isHungry, setIsHungry] = useState<boolean>(cat?.isHungry);
@@ -19,9 +18,9 @@ const Cat: React.FC<CatProps> = ({ cat }) => {
         height: '33%',
         backgroundColor: 'red',
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
       }}>
-      <Text style={{ textAlign: 'center' }}>
+      <Text style={{textAlign: 'center'}}>
         I am {catName}, and I am {isHungry ? 'hungry' : 'full'}!
       </Text>
       <Button

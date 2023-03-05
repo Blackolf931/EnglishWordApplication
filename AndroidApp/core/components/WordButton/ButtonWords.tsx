@@ -1,12 +1,10 @@
-import React, { FC } from "react"
-import { Button, View } from "react-native"
-import { styles } from "./style"
-
+import React, {FC} from 'react';
+import {Button} from 'react-native';
 
 interface ButtonWithWordsProps {
-    word: string
+  word: string;
 }
 
-export const ButtonWithWords: FC<ButtonWithWordsProps> = ({ word }) => {
-    return <Button title={word}/>
-}
+export const ButtonWithWords: FC<ButtonWithWordsProps> = ({word}) => {
+  return <Button title={word} />;
+};

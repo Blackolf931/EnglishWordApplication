@@ -1,5 +1,5 @@
 export interface WordsData {
-    englishWord: string,
-    translatedWord: string,
-    translatedWords: string[],
+  englishWord: string;
+  translatedWord: string;
+  translatedWords: string[];
 }
