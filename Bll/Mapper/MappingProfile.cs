@@ -9,6 +9,8 @@ namespace Bll.Mapper
         public MappingProfile()
         {
             CreateMap<EnglishWordModel, EnglishWordEntity>().ReverseMap();
+            CreateMap<TranslatedWordModel, TranslatedWordEntity>().ReverseMap();
+            CreateMap<EnglishTranslatedWordModel, EnglishTranslatedWordEntity>().ReverseMap();
         }
     }
 }
