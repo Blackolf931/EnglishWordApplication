@@ -12,7 +12,7 @@ namespace DAL.DI
     {
         public static void AddDataAccess(this IServiceCollection services, IConfiguration config)
         {
-            services.AddScoped<IGenericRepository<EnglishWordEntity>, GenericRepository<EnglishWordEntity>>();
+            services.AddScoped<IGenericRepository<EnglishTranslatedWordEntity>, GenericRepository<EnglishTranslatedWordEntity>>();
             services.AddDbContext<DatabaseContext>(op =>
                 {
                     op.UseSqlServer(config.GetConnectionString("DefaultConnection"));

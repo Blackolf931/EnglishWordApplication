@@ -1,4 +1,6 @@
-﻿namespace EnglishWordApplication.Middleware
+﻿using System.Net;
+
+namespace EnglishWordApplication.Middleware
 {
     public class ExceptionMiddleware
     {
@@ -15,9 +17,15 @@
             {
                 await _next.Invoke(context);
             }
+            catch (WebException ex) when (ex.Response is HttpWebResponse response)
+            {
+                context.Response.StatusCode = (int)response.StatusCode;
+                await context.Response.WriteAsync($"{ex.Message}");
+                logger.LogError(ex.Message);
+                logger.LogError(ex.StackTrace);
+            }
             catch (Exception ex)
             {
-                context.Response.StatusCode = StatusCodes.Status400BadRequest;
                 await context.Response.WriteAsync($"{ex.Message}");
                 logger.LogError(ex.Message);
                 logger.LogError(ex.StackTrace);

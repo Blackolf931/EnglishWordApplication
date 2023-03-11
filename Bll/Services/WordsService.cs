@@ -16,7 +16,7 @@ namespace Bll.Services
             _mapper = mapper;
         }
 
-        public override async Task<IEnumerable<EnglishWordModel>> GetAll(CancellationToken ct)
+      /*  public override async Task<IEnumerable<EnglishWordModel>> GetAll(CancellationToken ct)
         {
             var result = await _repository.GetAll(ct);
             var mappedObject = _mapper.Map<IEnumerable<EnglishWordModel>>(result).ToList();
@@ -29,7 +29,7 @@ namespace Bll.Services
             var result = englishWords.Where(x => x.TranslatedWord != correctTranslatedWord).Take(3).Select(x => x.TranslatedWord).ToList();
             result.Add(correctTranslatedWord);
             return ShuffleAnswersArray(result);
-        }
+        }*/
 
         private IEnumerable<string> ShuffleAnswersArray(IEnumerable<string> words)
         {
