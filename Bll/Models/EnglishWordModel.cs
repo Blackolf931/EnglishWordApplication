@@ -3,6 +3,7 @@
     public class EnglishWordModel
     {
         public Guid Id { get; set; }
-        public string EnglishWord { get; set; } = null!;
+        public string Word { get; set; } = null!;
+        public virtual IEnumerable<EnglishTranslatedWordModel> EnglishTranslatedWords { get; set; } = null!;
     }
 }

@@ -1,10 +1,10 @@
 using AutoMapper;
 using Bll.Interfaces;
 using Bll.Models;
-using EnglishWord.ViewModel.EnglishWordViewModels;
+using EnglishWord.API.ViewModel.EnglishWord;
 using Microsoft.AspNetCore.Mvc;
 
-namespace EnglishWord.Controllers
+namespace EnglishWord.API.Controllers
 {
     [ApiController]
     [Route("EnglishWordController")]
@@ -22,8 +22,8 @@ namespace EnglishWord.Controllers
         [HttpGet("GetAll")]
         public async Task<IEnumerable<EnglishWordViewModel>> GetAll(CancellationToken ct)
         {
-                var result = await _service.GetAll(ct);
-                return _mapper.Map<IEnumerable<EnglishWordViewModel>>(result);
+           var result = await _service.GetAll(ct);
+           return _mapper.Map<IEnumerable<EnglishWordViewModel>>(result);
         }
 
         [HttpGet("{id}")]

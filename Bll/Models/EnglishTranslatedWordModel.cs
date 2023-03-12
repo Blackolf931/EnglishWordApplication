@@ -1,6 +1,4 @@
-﻿using DAL.Entities;
-
-namespace Bll.Models
+﻿namespace Bll.Models
 {
     public class EnglishTranslatedWordModel
     {

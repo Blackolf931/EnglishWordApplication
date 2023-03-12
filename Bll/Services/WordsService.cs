@@ -8,23 +8,28 @@ namespace Bll.Services
 {
     public class WordsService : GenericService<EnglishWordModel, EnglishWordEntity>, IWordService
     {
-        private readonly IGenericRepository<EnglishWordEntity> _repository;
+        private readonly IWordRepository _repository;
         private readonly IMapper _mapper;
-        public WordsService(IGenericRepository<EnglishWordEntity> repository, IMapper mapper) : base(repository, mapper)
+        public WordsService(IWordRepository repository, IMapper mapper) : base(repository, mapper)
         {
             _repository = repository;
             _mapper = mapper;
         }
 
-      /*  public override async Task<IEnumerable<EnglishWordModel>> GetAll(CancellationToken ct)
+        public override async Task<IEnumerable<EnglishWordModel>> GetAll(CancellationToken ct)
         {
             var result = await _repository.GetAll(ct);
-            var mappedObject = _mapper.Map<IEnumerable<EnglishWordModel>>(result).ToList();
-            mappedObject.ForEach(x => x.TranslatedWords = GetTranslatedWordsList(mappedObject, x.TranslatedWord));
-            return ShuffleArray(mappedObject);
+            return _mapper.Map<IEnumerable<EnglishWordModel>>(result);
+
+
+
+            var mappedObject = _mapper.Map<IEnumerable<EnglishWordModel>>(result);
+            return mappedObject;
+            //  mappedObject.ForEach(x => x.TranslatedWords = GetTranslatedWordsList(mappedObject, x.TranslatedWord));
+           // return ShuffleArray(mappedObject);
         }
 
-        private IEnumerable<string> GetTranslatedWordsList(IEnumerable<EnglishWordModel> englishWords, string correctTranslatedWord)
+      /*  private IEnumerable<string> GetTranslatedWordsList(IEnumerable<EnglishWordModel> englishWords, string correctTranslatedWord)
         {
             var result = englishWords.Where(x => x.TranslatedWord != correctTranslatedWord).Take(3).Select(x => x.TranslatedWord).ToList();
             result.Add(correctTranslatedWord);

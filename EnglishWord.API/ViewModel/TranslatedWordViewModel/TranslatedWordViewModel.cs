@@ -1,4 +1,4 @@
-﻿namespace EnglishWord.ViewModel.TranslatedWordViewModel
+﻿namespace EnglishWord.API.ViewModel.TranslatedWordViewModel
 {
     public class TranslatedWordViewModel
     {

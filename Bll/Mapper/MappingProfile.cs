@@ -8,7 +8,8 @@ namespace Bll.Mapper
     {
         public MappingProfile()
         {
-            CreateMap<EnglishWordModel, EnglishWordEntity>().ReverseMap();
+            CreateMap<EnglishWordModel, EnglishWordEntity>().ReverseMap()
+                .ForMember(x => x.Word, y => y.MapFrom(z => z.EnglishWord));
             CreateMap<TranslatedWordModel, TranslatedWordEntity>().ReverseMap();
             CreateMap<EnglishTranslatedWordModel, EnglishTranslatedWordEntity>().ReverseMap();
         }
