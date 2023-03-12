@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Bll.Interfaces;
 using Bll.Models;
-using EnglishWord.ViewModel.TranslatedWordViewModel;
+using EnglishWord.API.ViewModel.TranslatedWordViewModel;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EnglishWord.API.Controllers

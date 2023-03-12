@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
 using Bll.Models;
-using EnglishWord.ViewModel.EnglishTranslatedWordViewModel;
-using EnglishWord.ViewModel.EnglishWordViewModels;
-using EnglishWord.ViewModel.TranslatedWordViewModel;
+using EnglishWord.API.ViewModel.EnglishTranslatedWord;
+using EnglishWord.API.ViewModel.EnglishWord;
+using EnglishWord.API.ViewModel.TranslatedWordViewModel;
 
-namespace EnglishWord.Mapper
+namespace EnglishWord.API.Mapper
 {
     public class MappingProfile: Profile
     {

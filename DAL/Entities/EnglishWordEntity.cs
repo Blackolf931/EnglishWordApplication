@@ -4,6 +4,6 @@
     {
         public Guid Id { get; set; }
         public string EnglishWord { get; set; } = null!;
-        public virtual EnglishTranslatedWordEntity EnglishTranslatedWords { get; set; }
+        public virtual IEnumerable<EnglishTranslatedWordEntity> EnglishTranslatedWords { get; set; } = null!;
     }
 }
