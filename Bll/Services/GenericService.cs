@@ -24,7 +24,7 @@ namespace Bll.Services
             return _mapper.Map<TModel>(result);
         }
 
-        public async ValueTask Delete(int id, CancellationToken ct)
+        public async ValueTask Delete(Guid id, CancellationToken ct)
         {
             var entity = await _repository.GetById(id, ct);
             await _repository.Delete(entity, ct);
@@ -36,7 +36,7 @@ namespace Bll.Services
             return _mapper.Map<IEnumerable<TModel>>(result);
         }
 
-        public async Task<TModel> GetById(int id, CancellationToken ct)
+        public async Task<TModel> GetById(Guid id, CancellationToken ct)
         {
             var result = await _repository.GetById(id, ct);
             return _mapper.Map<TModel>(result);
